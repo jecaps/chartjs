@@ -41,6 +41,12 @@ const config = {
   data: data,
   options: {
     // indexAxis: "y",
+    plugins: {
+      title: {
+        display: true,
+        text: "Largest Cities in Massachusetts",
+      },
+    },
   },
 };
 
