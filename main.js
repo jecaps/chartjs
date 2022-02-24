@@ -40,11 +40,13 @@ const config = {
   type: "bar",
   data: data,
   options: {
-    indexAxis: "y",
+    // indexAxis: "y",
   },
 };
 
 Chart.defaults.font.size = 18;
+// Chart.defaults.font.weight = "italic";
+Chart.defaults.font.family = "'Anonymous Pro', monospace";
 Chart.defaults.color = "#031927";
 
 let myChart = new Chart(document.getElementById("myChart"), config);
