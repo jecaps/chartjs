@@ -44,4 +44,7 @@ const config = {
   },
 };
 
+Chart.defaults.font.size = 18;
+Chart.defaults.color = "#031927";
+
 let myChart = new Chart(document.getElementById("myChart"), config);
