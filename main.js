@@ -37,7 +37,7 @@ const data = {
 };
 
 const config = {
-  type: "bar",
+  type: "pie",
   data: data,
   options: {
     // indexAxis: "y",
@@ -51,23 +51,23 @@ const config = {
         color: "red",
       },
       legend: {
-        // position: "right",
+        position: "right",
         // align: "start",
         // labels: {
         //   color: "#F02D3A",
         // },
-        display: false,
+        display: true,
       },
-      layout: {
-        padding: {
-          left: 50,
-          top: 0,
-          bottom: 0,
-          right: 0,
-        },
-      },
+      // layout: {
+      //   padding: {
+      //     left: 50,
+      //     top: 50,
+      //     bottom: 50,
+      //     right: 0,
+      //   },
+      // },
       tooltip: {
-        enabled: false,
+        // enabled: false,
       },
     },
   },
