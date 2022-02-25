@@ -48,6 +48,7 @@ const config = {
         font: {
           size: 25,
         },
+        color: "red",
       },
       legend: {
         // position: "right",
@@ -56,6 +57,17 @@ const config = {
         //   color: "#F02D3A",
         // },
         display: false,
+      },
+      layout: {
+        padding: {
+          left: 50,
+          top: 0,
+          bottom: 0,
+          right: 0,
+        },
+      },
+      tooltip: {
+        enabled: false,
       },
     },
   },
