@@ -37,10 +37,10 @@ const data = {
 };
 
 const config = {
-  type: "pie",
+  type: "bar",
   data: data,
   options: {
-    // indexAxis: "y",
+    indexAxis: "y",
     plugins: {
       title: {
         display: true,
@@ -73,7 +73,7 @@ const config = {
   },
 };
 
-Chart.defaults.font.size = 18;
+Chart.defaults.font.size = 12;
 // Chart.defaults.font.weight = "italic";
 Chart.defaults.font.family = "'Anonymous Pro', monospace";
 Chart.defaults.color = "#031927";
