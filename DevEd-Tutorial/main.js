@@ -31,38 +31,43 @@ const dataObj = [
   },
 ];
 
-const legend = dataObj.map((employee) => employee.name);
+const legend = (arr) => {
+  return arr.map((employee) => employee.name);
+};
 const dates = (obj) => {
-  delete obj.name;
+  let newObj = { ...obj };
+  delete newObj.name;
   let datesList = [];
-  datesList.push(Object.keys(obj));
+  datesList.push(Object.keys(newObj));
   return datesList.shift();
 };
-
-const hoursWorked = [];
-
-console.log(legend);
-console.log(dates(dataObj[0]));
+const hoursWorked = (arr) => {
+  let hoursWorkedList = [];
+  for (let employee of arr) {
+    let newEmployee = { ...employee };
+    delete newEmployee.name;
+    let employeeHoursWorkedList = [];
+    employeeHoursWorkedList.push(Object.values(newEmployee));
+    hoursWorkedList.push(employeeHoursWorkedList);
+  }
+  return hoursWorkedList;
+};
 
 const data = {
   labels: dates(dataObj[0]),
   datasets: [
     {
-      label: legend[0],
-      data: hoursWorked[0],
+      label: legend(dataObj)[0],
+      data: hoursWorked(dataObj)[0],
       borderColor: "red",
     },
     {
-      label: legend[1],
-      data: hoursWorked[1],
+      label: legend(dataObj)[1],
+      data: hoursWorked(dataObj)[1],
       borderColor: "blue",
     },
   ],
 };
-
-const config = {
-  type: "line",
-  data: data,
-};
-
-let myChart = new Chart(document.getElementById("myChart"), config);
+console.log(legend(dataObj));
+console.log(dates(dataObj[0]));
+console.log(hoursWorked(dataObj));
