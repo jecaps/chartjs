@@ -64,21 +64,29 @@ const data = {
       label: legend(dataObj)[0],
       data: hoursWorked(dataObj[0]),
       borderColor: "rgba(249, 0, 147, 0.7)",
-      // backgroundColor: "rgba(249, 0, 147, 0.5)",
-      backgroundColor: gradient,
-      borderWidth: 1,
-      hoverBorderWidth: 2,
+      backgroundColor: "rgba(249, 0, 147, 0.5)",
       fill: false,
+      // backgroundColor: gradient,
+      borderWidth: 2,
+      pointBackgroundColor: "rgb(249, 0, 147)",
+      radius: 3,
+      hitRadius: 30,
+      hoverRadius: 8,
+      tension: 0.4,
     },
     {
       label: legend(dataObj)[1],
       data: hoursWorked(dataObj[1]),
       borderColor: "rgba(15, 163, 177, 0.7)",
-      // backgroundColor: "rgba(15, 163, 177, 0.5)",
-      backgroundColor: gradient,
-      borderWidth: 1,
-      hoverBorderWidth: 2,
+      backgroundColor: "rgba(15, 163, 177, 0.2)",
       fill: "-1",
+      // backgroundColor: gradient,
+      borderWidth: 2,
+      pointBackgroundColor: "rgb(15, 163, 177)",
+      radius: 3,
+      hitRadius: 30,
+      hoverRadius: 8,
+      tension: 0.4,
     },
   ],
 };
@@ -90,17 +98,46 @@ const config = {
   type: "line",
   data: data,
   options: {
+    plugins: {
+      title: {
+        display: true,
+        text: "Monthly Working Hours per Employee",
+        font: {
+          size: 30,
+          family: "'Karla', sans-serif",
+        },
+        color: "#19323C",
+      },
+      legend: {
+        position: "right",
+      },
+      tooltip: {
+        backgroundColor: "rgba(128, 141, 142, 0.8)",
+        titleFont: {
+          weight: "normal",
+        },
+        bodyFont: {
+          weight: "normal",
+        },
+      },
+    },
     responsive: true,
     scales: {
       y: {
         ticks: {
           callback: (value) => {
-            return value + " h";
+            return value + "h";
           },
         },
       },
     },
+    // pointStyle: "cross",
   },
 };
+
+Chart.defaults.font.size = 16;
+Chart.defaults.font.family = "'Roboto', sans-serif";
+Chart.defaults.font.weight = "bold";
+Chart.defaults.color = "#4D5061";
 
 let myChart = new Chart(document.getElementById("myChart"), config);
