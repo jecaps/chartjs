@@ -1,6 +1,6 @@
 const dataObj = [
   {
-    name: "Employee 1",
+    name: "Andreas Kanz",
     "2021-12": 192.8,
     "2021-11": 204.0,
     "2021-10": 185.0,
@@ -15,7 +15,7 @@ const dataObj = [
     "2021-01": 34.0,
   },
   {
-    name: "Employee 2",
+    name: "Jerika Kanz",
     "2021-12": 186.0,
     "2021-11": 196.0,
     "2021-10": 170.0,
@@ -31,15 +31,19 @@ const dataObj = [
   },
 ];
 
+// legends of the graph
 const legend = (arr) => {
   return arr.map((employee) => employee.name);
 };
+
+// labels
 const dates = (obj) => {
   let newObj = { ...obj };
   delete newObj.name;
   return Object.keys(newObj).reverse();
 };
 
+// points in the graph
 const hoursWorked = (emp) => {
   let newEmployee = { ...emp };
   delete newEmployee.name;
@@ -62,7 +66,6 @@ const data = {
       data: hoursWorked(dataObj[1]),
       borderColor: "rgba(15, 163, 177, 0.7)",
       backgroundColor: "rgba(15, 163, 177, 0.5)",
-
       borderWidth: 1,
       hoverBorderWidth: 2,
     },
@@ -75,6 +78,18 @@ const data = {
 const config = {
   type: "line",
   data: data,
+  options: {
+    responsive: true,
+    scales: {
+      y: {
+        ticks: {
+          callback: (value) => {
+            return value + " h";
+          },
+        },
+      },
+    },
+  },
 };
 
 let myChart = new Chart(document.getElementById("myChart"), config);
