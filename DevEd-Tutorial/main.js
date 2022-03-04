@@ -1,3 +1,10 @@
+const ctx = document.getElementById("myChart").getContext("2d");
+
+// Gradient fill
+let gradient = ctx.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, "rgba(15, 163, 177,1");
+gradient.addColorStop(1, "rgba(249, 0, 147,0.3)");
+
 const dataObj = [
   {
     name: "Andreas Kanz",
@@ -57,17 +64,21 @@ const data = {
       label: legend(dataObj)[0],
       data: hoursWorked(dataObj[0]),
       borderColor: "rgba(249, 0, 147, 0.7)",
-      backgroundColor: "rgba(249, 0, 147, 0.5)",
+      // backgroundColor: "rgba(249, 0, 147, 0.5)",
+      backgroundColor: gradient,
       borderWidth: 1,
       hoverBorderWidth: 2,
+      fill: false,
     },
     {
       label: legend(dataObj)[1],
       data: hoursWorked(dataObj[1]),
       borderColor: "rgba(15, 163, 177, 0.7)",
-      backgroundColor: "rgba(15, 163, 177, 0.5)",
+      // backgroundColor: "rgba(15, 163, 177, 0.5)",
+      backgroundColor: gradient,
       borderWidth: 1,
       hoverBorderWidth: 2,
+      fill: "-1",
     },
   ],
 };
