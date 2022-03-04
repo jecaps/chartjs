@@ -1,4 +1,4 @@
-dataObj = [
+const dataObj = [
   {
     name: "Employee 1",
     "2021-12": 192.8,
@@ -30,3 +30,39 @@ dataObj = [
     "2021-01": 32.0,
   },
 ];
+
+const legend = dataObj.map((employee) => employee.name);
+const dates = (obj) => {
+  delete obj.name;
+  let datesList = [];
+  datesList.push(Object.keys(obj));
+  return datesList.shift();
+};
+
+const hoursWorked = [];
+
+console.log(legend);
+console.log(dates(dataObj[0]));
+
+const data = {
+  labels: dates(dataObj[0]),
+  datasets: [
+    {
+      label: legend[0],
+      data: hoursWorked[0],
+      borderColor: "red",
+    },
+    {
+      label: legend[1],
+      data: hoursWorked[1],
+      borderColor: "blue",
+    },
+  ],
+};
+
+const config = {
+  type: "line",
+  data: data,
+};
+
+let myChart = new Chart(document.getElementById("myChart"), config);
