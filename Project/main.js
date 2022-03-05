@@ -15,7 +15,7 @@ const dataObj = {
       Summe: 21.0,
     },
     {
-      project_name: "Project 3",
+      project_name: "Project 5",
       "A. Kanz": 5.0,
       "J. Kanz": 8.0,
       "R. Kanz": 3.0,
@@ -61,7 +61,7 @@ const dataObj = {
       Summe: 15.0,
     },
     {
-      project_name: "Project 3",
+      project_name: "Project 4",
       "A. Kanz": 5.0,
       "J. Kanz": 8.0,
       "R. Kanz": 3.0,
@@ -69,3 +69,30 @@ const dataObj = {
     },
   ],
 };
+
+// Legends of the Graph
+const createLegend = (data) => {
+  let projectsList = [];
+  for (let project of data) {
+    projectsList.push(project.project_name);
+  }
+  return projectsList;
+};
+
+// y-axis labels
+const createYaxisLabels = (data) => {
+  let sumList = [];
+  for (let project of data) {
+    sumList.push(project.Summe);
+  }
+  return sumList;
+};
+
+// x-axis labels
+const createXaxisLabels = (data) => {
+  return Object.keys(data).reverse();
+};
+
+console.log(createLegend(dataObj["2021-12"]));
+console.log(createXaxisLabels(dataObj));
+console.log(createYaxisLabels(dataObj["2021-12"]));
